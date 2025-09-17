@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="226" version="1.1" viewBox="0 0 158.9 59.8" xmlns="http://www.w3.org/2000/svg">
+	<rect x="9.95" y=".1" width="139" height="59.59" rx="9.923" ry="9.923" fill="#fff" stroke="#000" stroke-width=".2646" style="paint-order:markers fill stroke"/>
+	<rect x="14.9" y="5.07" width="129.1" height="49.66" rx="4.961" ry="4.961" fill="none" stroke="#000" stroke-width="3.3077" style="paint-order:markers fill stroke"/>
+	<g stroke-width=".2647" aria-label="CITY">
+		<path d="m55.97 19.9-4.86 1.69q-1.64-3.67-5.31-3.67-6.75 0-6.75 12 0 11.96 6.75 11.96 3.67 0 5.31-3.67l4.86 1.69q-1.29 3.37-4.12 5.31-2.78 1.88-6.35 1.88-5.55 0-8.63-4.51-3.08-4.57-3.08-12.7 0-8.14 3.08-12.66 3.08-4.51 8.63-4.51 3.57 0 6.35 1.93 2.83 1.89 4.12 5.26z"/>
+		<path d="m63.24 13.35h5.31v33.1h-5.31z"/>
+		<path d="m74.52 13.35h20.19v5.31h-7.44v27.79h-5.31v-27.79h-7.44z"/>
+		<path d="m99.58 13.35h6.12l7.8 12.85 7.8-12.85h6.1l-11.2 18.56v14.54h-5.4v-14.54z"/>
+	</g>
+</svg>

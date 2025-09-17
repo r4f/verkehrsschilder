@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <script src="maplibre-gl.js"></script>
+            <link href="maplibre-gl.css" rel="stylesheet" />
+            <script src="pmtiles.js"></script>
+            <style>
+            #map {
+                    width: 100%;
+                    height: 1200px;
+            }
+            </style>
+        </head>
+
+        <body>
+
+<div id="map"></div>
+
+<script>
+    const protocol = new pmtiles.Protocol();
+    maplibregl.addProtocol("pmtiles", protocol.tile);
+
+    signs = [
+	'DE:1000-33',
+	'DE:1006-38',
+	'DE:1006-39',
+	'DE:1007-30',
+	'DE:101',
+	'DE:101-10',
+	'DE:101-11',
+	'DE:101-12',
+	'DE:101-13',
+	'DE:101-14',
+	'DE:101-15',
+	'DE:101-20',
+	'DE:101-21',
+	'DE:101-22',
+	'DE:101-23',
+	'DE:101-24',
+	'DE:101-25',
+	'DE:101-51',
+	'DE:101-52',
+	'DE:101-53',
+	'DE:101-54',
+	'DE:101-55',
+	'DE:1012-30',
+	'DE:102',
+	'DE:1026-31',
+	'DE:103-10',
+	'DE:103-20',
+	'DE:1030-10',
+	'DE:105-10',
+	'DE:105-20',
+	'DE:1060-11',
+	'DE:1060-30',
+	'DE:108-10',
+	'DE:110-12',
+	'DE:112',
+	'DE:114',
+	'DE:117-10',
+	'DE:117-20',
+	'DE:120',
+	'DE:121-10',
+	'DE:121-20',
+	'DE:123',
+	'DE:124',
+	'DE:125',
+	'DE:131',
+	'DE:133-10',
+	'DE:133-20',
+	'DE:136-10',
+	'DE:136-20',
+	'DE:138-10',
+	'DE:138-20',
+	'DE:142-10',
+	'DE:142-20',
+	'DE:145',
+	'DE:150',
+	'DE:151',
+	'DE:153',
+	'DE:156-10',
+	'DE:156-11',
+	'DE:156-20',
+	'DE:157-10',
+	'DE:157-11',
+	'DE:157-20',
+	'DE:157-21',
+	'DE:159-10',
+	'DE:159-11',
+	'DE:159-20',
+	'DE:159-21',
+	'DE:162-10',
+	'DE:162-11',
+	'DE:162-20',
+	'DE:162-21',
+	'DE:201',
+	'DE:201-50',
+	'DE:201-51',
+	'DE:201-53',
+	'DE:205',
+	'DE:206',
+	'DE:208',
+	'DE:209',
+	'DE:209-10',
+	'DE:209-30',
+	'DE:211',
+	'DE:211-10',
+	'DE:214',
+	'DE:214-10',
+	'DE:214-30',
+	'DE:215',
+	'DE:220-10',
+	'DE:220-20',
+	'DE:222',
+	'DE:222-10',
+	'DE:223.1-50',
+	'DE:223.1-51',
+	'DE:223.1-52',
+	'DE:223.2-50',
+	'DE:223.2-51',
+	'DE:223.2-52',
+	'DE:223.3-50',
+	'DE:223.3-51',
+	'DE:223.3-52',
+	'DE:224',
+	'DE:224-51',
+	'DE:229',
+	'DE:229-10',
+	'DE:229-11',
+	'DE:229-20',
+	'DE:229-21',
+	'DE:229-30',
+	'DE:229-31',
+	'DE:237',
+	'DE:238',
+	'DE:239',
+	'DE:240',
+	'DE:241-30',
+	'DE:241-31',
+	'DE:242.1',
+	'DE:242.2',
+	'DE:244.1',
+	'DE:244.2',
+	'DE:245',
+	'DE:250',
+	'DE:251',
+	'DE:253',
+	'DE:2531',
+	'DE:2532',
+	'DE:254',
+	'DE:255',
+	'DE:257-50',
+	'DE:257-51',
+	'DE:257-52',
+	'DE:257-53',
+	'DE:257-54',
+	'DE:257-55',
+	'DE:257-56',
+	'DE:257-57',
+	'DE:257-58',
+	'DE:259',
+	'DE:260',
+	'DE:261',
+	'DE:262',
+	'DE:262-5,5',
+	'DE:263',
+	'DE:263-8',
+	'DE:264-2',
+	'DE:264-2,3',
+	'DE:265',
+	'DE:265-3,8',
+	'DE:266-10',
+	'DE:267',
+	'DE:268',
+	'DE:269',
+	'DE:270.1',
+	'DE:270.2',
+	'DE:272',
+	'DE:273-70',
+	'DE:274',
+	'DE:274-5',
+	'DE:274-10',
+	'DE:274-30',
+	'DE:274-50',
+	'DE:274-60',
+	'DE:274-70',
+	'DE:274-80',
+	'DE:274-90',
+	'DE:274-100',
+	'DE:274-110',
+	'DE:274-120',
+	'DE:274-130',
+	'DE:274.1',
+	'DE:274.1-20',
+	'DE:274.2',
+	'DE:274.2-20',
+	'DE:275-30',
+	'DE:276',
+	'DE:277',
+	'DE:278-60',
+	'DE:279-30',
+	'DE:280',
+	'DE:281',
+	'DE:282',
+	'DE:283',
+	'DE:283-10',
+	'DE:283-11',
+	'DE:283-20',
+	'DE:283-21',
+	'DE:283-30',
+	'DE:283-31',
+	'DE:286',
+	'DE:286-10',
+	'DE:286-11',
+	'DE:286-20',
+	'DE:286-21',
+	'DE:286-30',
+	'DE:286-31',
+	'DE:290.1',
+	'DE:290.2',
+	'DE:293',
+	'DE:294',
+	'DE:295',
+	'DE:296',
+	'DE:297',
+	'DE:297.1',
+	'DE:297.1-21',
+	'DE:298',
+	'DE:299',
+	'DE:301',
+	'DE:306',
+	'DE:307',
+	'DE:308',
+	'DE:310',
+	'DE:311',
+	'DE:311-51',
+	'DE:314',
+	'DE:314-10',
+	'DE:314-20',
+	'DE:314-30',
+	'DE:314-50',
+	'DE:314.1',
+	'DE:314.2',
+	'DE:315-50',
+	'DE:315-55',
+	'DE:315-60',
+	'DE:315-65',
+	'DE:315-70',
+	'DE:315-75',
+	'DE:315-80',
+	'DE:315-85',
+	'DE:318',
+	'DE:325.1',
+	'DE:325.2',
+	'DE:327',
+	'DE:327-50',
+	'DE:328',
+	'DE:330.1',
+	'DE:330.2',
+	'DE:331.1',
+	'DE:331.2',
+	'DE:332',
+	'DE:332.1',
+	'DE:332.1-20',
+	'DE:333',
+	'DE:333.1',
+	'DE:333.1-20',
+	'DE:340',
+	'DE:341',
+	'DE:350-10',
+	'DE:350-20',
+	'DE:354',
+	'DE:356',
+	'DE:357',
+	'DE:357-50',
+	'DE:357-51',
+	'DE:357-52',
+	'DE:358',
+	'DE:363',
+	'DE:385',
+	'DE:386.1',
+	'DE:386.1-10',
+	'DE:386.1-11',
+	'DE:386.1-12',
+	'DE:386.1-20',
+	'DE:386.1-21',
+	'DE:386.1-22',
+	'DE:386.1-30',
+	'DE:386.1-50',
+	'DE:386.1-51',
+	'DE:386.1-52',
+	'DE:386.1-53',
+	'DE:386.2',
+	'DE:386.2-10',
+	'DE:386.2-11',
+	'DE:386.2-12',
+	'DE:386.2-20',
+	'DE:386.2-21',
+	'DE:386.2-22',
+	'DE:386.2-30',
+	'DE:386.2-51',
+	'DE:386.2-52',
+	'DE:386.2-53',
+	'DE:386.3',
+	'DE:386.3-50',
+	'DE:390',
+	'DE:390.2',
+	'DE:391',
+	'DE:392',
+	'DE:393',
+	'DE:394',
+	'DE:405',
+	'DE:406-50',
+	'DE:406-51',
+	'DE:410',
+	'DE:415-10',
+	'DE:415-20',
+	'DE:418-10',
+	'DE:418-20',
+	'DE:419-10',
+	'DE:419-20',
+	'DE:421-20',
+	'DE:422-10',
+	'DE:422-11',
+	'DE:422-20',
+	'DE:422-21',
+	'DE:422-30',
+	'DE:422-31',
+	'DE:422-32',
+	'DE:422-36',
+	'DE:430-10',
+	'DE:430-20',
+	'DE:432-10',
+	'DE:432-20',
+	'DE:434',
+	'DE:434-52',
+	'DE:434-53',
+	'DE:437',
+	'DE:438',
+	'DE:439',
+	'DE:440',
+	'DE:442-10',
+	'DE:442-12',
+	'DE:442-13',
+	'DE:442-20',
+	'DE:442-22',
+	'DE:442-23',
+	'DE:442-50',
+	'DE:442-51',
+	'DE:442-52',
+	'DE:442-53',
+	'DE:448',
+	'DE:448-50',
+	'DE:448.1',
+	'DE:449',
+	'DE:450-50',
+	'DE:450-51',
+	'DE:450-52',
+	'DE:450-53',
+	'DE:450-54',
+	'DE:450-55',
+	'DE:453',
+	'DE:453-50',
+	'DE:454-10',
+	'DE:454-20',
+	'DE:455.2',
+	'DE:457.1',
+	'DE:457.2',
+	'DE:458',
+	'DE:460-10',
+	'DE:460-11',
+	'DE:460-12',
+	'DE:460-20',
+	'DE:460-21',
+	'DE:460-22',
+	'DE:460-30',
+	'DE:460-50',
+	'DE:466',
+	'DE:467.1-10',
+	'DE:467.1-20',
+	'DE:467.1-30',
+	'DE:467.2',
+	'DE:501-10',
+	'DE:501-11',
+	'DE:501-12',
+	'DE:501-15',
+	'DE:501-16',
+	'DE:501-17',
+	'DE:501-18',
+	'DE:501-20',
+	'DE:501-21',
+	'DE:501-22',
+	'DE:505-11',
+	'DE:505-12',
+	'DE:505-21',
+	'DE:505-22',
+	'DE:511-11',
+	'DE:511-12',
+	'DE:511-20',
+	'DE:511-21',
+	'DE:511-22',
+	'DE:513-10',
+	'DE:513-11',
+	'DE:513-20',
+	'DE:513-21',
+	'DE:514-10',
+	'DE:514-20',
+	'DE:515-11',
+	'DE:515-12',
+	'DE:515-21',
+	'DE:515-22',
+	'DE:521-30',
+	'DE:521-31',
+	'DE:521-32',
+	'DE:521-33',
+	'DE:522-30',
+	'DE:522-31',
+	'DE:522-32',
+	'DE:522-33',
+	'DE:522-34',
+	'DE:522-35',
+	'DE:522-36',
+	'DE:522-37',
+	'DE:522-38',
+	'DE:531-10',
+	'DE:532-10',
+	'DE:535-11',
+	'DE:536-20',
+	'DE:541-10',
+	'DE:542-10',
+	'DE:545-11',
+	'DE:546-10',
+	'DE:551-20',
+	'DE:551-21',
+	'DE:551-22',
+	'DE:590-10',
+	'DE:590-11',
+	'DE:600',
+	'DE:605-10',
+	'DE:605-11',
+	'DE:605-13',
+	'DE:605-14',
+	'DE:605-23',
+	'DE:605-24',
+	'DE:610-40',
+	'DE:615',
+	'DE:616-30',
+	'DE:616-31',
+	'DE:620-40',
+	'DE:620-41',
+	'DE:625-10',
+	'DE:625-11',
+	'DE:625-12',
+	'DE:625-13',
+	'DE:625-20',
+	'DE:625-21',
+	'DE:625-22',
+	'DE:625-23',
+	'DE:626-10',
+	'DE:626-20',
+	'DE:626-30',
+	'DE:626-31',
+	'DE:627-50',
+	'DE:628-10',
+	'DE:629-10',
+	'DE:630',
+	'DE:365-51',
+	'DE:365-55',
+	'DE:365-58',
+	'DE:365-60',
+	'DE:365-62',
+	'DE:365-64',
+	'DE:365-67',
+	'DE:365-52',
+	'DE:365-56',
+	'DE:365-59',
+	'DE:365-61',
+	'DE:365-63',
+	'DE:365-65',
+	'DE:365-68',
+	'Guidepost-14',
+	'Zwischenwegweiser_Rad_geradeaus'
+    ]
+    for (const sign of signs) {
+      fetch(`signs/${sign}.svg`)
+      .then(response => response.text())
+      .then(svgText => {
+        // Convert SVG text to an image object
+        const svg = new Blob([svgText], {type: 'image/svg+xml'});
+        const url = URL.createObjectURL(svg);
+        const img = new Image();
+        img.onload = function() {
+		map.addImage(sign, img);
+          URL.revokeObjectURL(url);
+        };
+        img.src = url;
+      });
+    }
+
+    fetch('Zusatzschild_803_-_Anlieger_frei,_StVO_1970.svg')
+    .then(response => response.text())
+    .then(svgText => {
+      // Convert SVG text to an image object
+      const svg = new Blob([svgText], {type: 'image/svg+xml'});
+      const url = URL.createObjectURL(svg);
+      const img = new Image();
+      img.onload = function() {
+        map.addImage('anlieger-frei', img);
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    });
+
+    fetch('destination_sign.svg')
+    .then(response => response.text())
+    .then(svgText => {
+      // Convert SVG text to an image object
+      const svg = new Blob([svgText], {type: 'image/svg+xml'});
+      const url = URL.createObjectURL(svg);
+      const img = new Image();
+      img.onload = function() {
+        map.addImage('destination', img);
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    });
+
+    fetch('pole.svg')
+    .then(response => response.text())
+    .then(svgText => {
+      // Convert SVG text to an image object
+      const svg = new Blob([svgText], {type: 'image/svg+xml'});
+      const url = URL.createObjectURL(svg);
+      const img = new Image();
+      img.onload = function() {
+        map.addImage('pole', img);
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    });
+    fetch('City_plate_1948.svg')
+    .then(response => response.text())
+    .then(svgText => {
+      // Convert SVG text to an image object
+      const svg = new Blob([svgText], {type: 'image/svg+xml'});
+      const url = URL.createObjectURL(svg);
+      const img = new Image();
+      img.onload = function() {
+        map.addImage('city_limit', img);
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    });
+    fetch('Vienna_Convention_road_sign_B1-V1.svg')
+    .then(response => response.text())
+    .then(svgText => {
+      // Convert SVG text to an image object
+      const svg = new Blob([svgText], {type: 'image/svg+xml'});
+      const url = URL.createObjectURL(svg);
+      const img = new Image();
+      img.onload = function() {
+        map.addImage('give-way', img);
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    });
+    fetch('Circled_dot.svg')
+    .then(response => response.text())
+    .then(svgText => {
+      // Convert SVG text to an image object
+      const svg = new Blob([svgText], {type: 'image/svg+xml'});
+      const url = URL.createObjectURL(svg);
+      const img = new Image();
+      img.onload = function() {
+        map.addImage('circle-green', img);
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    });
+    fetch('Circled_dot_gray.svg')
+    .then(response => response.text())
+    .then(svgText => {
+      // Convert SVG text to an image object
+      const svg = new Blob([svgText], {type: 'image/svg+xml'});
+      const url = URL.createObjectURL(svg);
+      const img = new Image();
+      img.onload = function() {
+        map.addImage('circle-gray', img);
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    });
+    
+    var map = new maplibregl.Map({
+        container: 'map', // container id
+        style: 'dark_matter.json', // style URL
+        center: [12.3747329, 51.3406321], // starting position [lng, lat]
+        zoom: 18, // starting zoom
+        //maxBounds: [
+	//	[9.093, 49.497],
+	//	[10.905, 50.556],
+	//]
+    });
+
+    function removePrefixFromArray(inputArray) {
+      if (!Array.isArray(inputArray)) {
+        console.error('Error: Input must be an array.');
+        return [];
+      }
+    
+      return inputArray.map(item => {
+        if (typeof item === 'string' && item.startsWith('DE:')) {
+          return item.substring(3);
+        }
+        return item;
+      });
+    }
+
+    function to_sign_identifiers(traffic_sign_value) {
+    	// takes the OSM traffic sign value and turns it into identifiers that can be used to load images.
+	//const arr = traffic_sign_value.split();
+	const arr = traffic_sign_value.split(/,|;/);
+	return removePrefixFromArray(arr)
+    }
+
+
+    map.on('click', 'traffic_sign_pole', function(e) {
+        // e.features contains all features at the click location
+        if (e.features.length > 0) {
+            const feature = e.features[0];
+            // Build HTML for popup from feature properties
+            let html = '<h3>' + (feature.properties['name'] || 'Verkehrszeichen') + '</h3>';
+	    html += '<h2>'+feature.properties['traffic_sign']+'</h2>';
+	    for (const sign of to_sign_identifiers(feature.properties['traffic_sign'])) {
+	      html += '<h3>'+sign+'</h3>';
+	    }
+            html += '<ul>';
+            for (const key in feature.properties) {
+                html += `<li><b>${key}</b>: ${feature.properties[key]}</li>`;
+            }
+            html += '</ul>';
+            // Show popup at clicked location
+            new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(html)
+                .addTo(map);
+        }
+    });
+    map.on('mouseenter', 'traffic_sign_pole', function() {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'traffic_sign_pole', function() {
+        map.getCanvas().style.cursor = '';
+    });
+</script>
+
+        </body>
+</html>

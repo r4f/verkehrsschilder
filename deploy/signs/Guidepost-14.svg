@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   width="300"
+   height="300"
+   viewBox="0 0 300 300"
+   id="svg2"
+   sodipodi:docname="Guidepost-14.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.95870536"
+     inkscape:cx="174.71478"
+     inkscape:cy="292.06053"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="1472"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <metadata
+     id="metadata8">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs6" />
+  <rect
+     width="300"
+     height="300"
+     x="0"
+     y="0"
+     id="canvas"
+     style="visibility:hidden;fill:none;stroke:none;stroke-width:21.4286" />
+  <path
+     d="m 150,5.35714 c -8.03571,0 -16.07143,5.35715 -16.07143,16.07143 V 300 h 32.14286 V 21.42857 C 166.07143,10.71429 158.03571,5.35714 150,5.35714 Z M 42.85714,21.42857 0,53.571429 42.85714,85.714286 h 85.71429 V 21.42857 Z M 171.42857,85.714286 V 150 h 85.71429 L 300,117.85714 257.14286,85.714286 Z"
+     id="guidepost"
+     style="fill:#555555;fill-opacity:1;stroke:none;stroke-width:21.4286" />
+  <path
+     d="m 150,5.35714 c -8.03571,0 -16.07143,5.35715 -16.07143,16.07143 V 300 h 32.14286 V 21.42857 C 166.07143,10.71429 158.03571,5.35714 150,5.35714 Z M 42.85714,21.42857 0,53.571429 42.85714,85.714286 h 85.71429 V 21.42857 Z M 171.42857,85.714286 V 150 h 85.71429 L 300,117.85714 257.14286,85.714286 Z"
+     id="path899"
+     style="fill:#7d1c8e;fill-opacity:1;stroke:none;stroke-width:21.4286" />
+</svg>
