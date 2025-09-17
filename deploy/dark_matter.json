@@ -25,8 +25,8 @@
       "type": "vector", "url": "pmtiles://map.pmtiles.gz"
     }
   },
-  "sprite": "https://openmaptiles.github.io/dark-matter-gl-style/sprite",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
+  "sprite":"https://demotiles.maplibre.org/styles/osm-bright-gl-style/sprite",
+  "glyphs":"https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -103,7 +103,7 @@
         "symbol-placement": "line",
         "symbol-spacing": 500,
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Metropolis Medium Italic", "Noto Sans Italic"],
+        "text-font": ["Noto Sans Regular"],
         "text-rotation-alignment": "map",
         "text-size": 12
       },
@@ -550,7 +550,7 @@
         "symbol-placement": "line",
         "symbol-spacing": 350,
         "text-field": "{name:latin} {name:nonlatin}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-max-angle": 30,
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "map",
@@ -633,7 +633,7 @@
       "layout": {
         "text-anchor": "center",
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-justify": "center",
         "text-offset": [0.5, 0],
         "text-size": 10,
@@ -658,7 +658,7 @@
       "layout": {
         "text-anchor": "center",
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-justify": "center",
         "text-offset": [0.5, 0],
         "text-size": 10,
@@ -684,7 +684,7 @@
         "icon-size": 0.4,
         "text-anchor": "left",
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-justify": "left",
         "text-offset": [0.5, 0.2],
         "text-size": 10,
@@ -712,7 +712,7 @@
         "icon-size": 0.4,
         "text-anchor": {"base": 1, "stops": [[0, "left"], [8, "center"]]},
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-justify": "left",
         "text-offset": [0.5, 0.2],
         "text-size": 10,
@@ -745,7 +745,7 @@
         "icon-size": 0.4,
         "text-anchor": {"base": 1, "stops": [[0, "left"], [8, "center"]]},
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-justify": "left",
         "text-offset": [0.5, 0.2],
         "text-size": 10,
@@ -778,7 +778,7 @@
         "icon-size": 0.4,
         "text-anchor": {"base": 1, "stops": [[0, "left"], [8, "center"]]},
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-justify": "left",
         "text-offset": [0.5, 0.2],
         "text-size": 14,
@@ -803,7 +803,7 @@
       "filter": ["all", ["==", "$type", "Point"], ["==", "class", "state"]],
       "layout": {
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": 10,
         "text-transform": "uppercase",
         "visibility": "visible"
@@ -830,7 +830,7 @@
       ],
       "layout": {
         "text-field": "{name:latin}",
-        "text-font": ["Metropolis Light Italic", "Noto Sans Italic"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": {"base": 1, "stops": [[0, 9], [1, 11]]},
         "text-transform": "uppercase",
         "visibility": "visible"
@@ -857,7 +857,7 @@
       ],
       "layout": {
         "text-field": "{name:latin}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": {"base": 1, "stops": [[0, 10], [6, 12]]},
         "text-transform": "uppercase",
         "visibility": "visible"
@@ -885,7 +885,7 @@
       "layout": {
         "text-anchor": "center",
         "text-field": "{name:latin}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": {"base": 1.4, "stops": [[0, 10], [3, 12], [4, 14]]},
         "text-transform": "uppercase",
         "visibility": "visible"
@@ -975,7 +975,7 @@
       "layout": {
         "text-anchor": "center",
         "text-field": "{traffic_sign}",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": {"base": 1.4, "stops": [[0, 10], [3, 12], [4, 14]]},
         "text-transform": "uppercase",
         "text-allow-overlap":true,
@@ -999,7 +999,7 @@
       ],
       "layout": {
         "text-anchor": "center",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": {"base": 1.4, "stops": [[0, 10], [3, 12], [4, 14]]},
         "text-transform": "uppercase",
         "text-allow-overlap":true,
@@ -1027,7 +1027,7 @@
       ],
       "layout": {
         "text-anchor": "center",
-        "text-font": ["Metropolis Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": {"base": 1.4, "stops": [[0, 10], [3, 12], [4, 14]]},
         "text-transform": "uppercase",
         "text-allow-overlap":true,
